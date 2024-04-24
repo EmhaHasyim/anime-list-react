@@ -3,6 +3,7 @@ import AnimeListHorizontal from "@/components/layouts/Animelist/Horizontal/Anime
 import Fetcher from '@/utils/Fetcher/Fetcher';
 import TopAnime from "@/utils/Interface/TopAnime";
 import AnimeListHorizontalHeader from "@/components/layouts/Animelist/Horizontal/AnimeListHorizontalHeader";
+import AnimeListHorizontalSkeleton from "@/components/layouts/Animelist/Horizontal/AnimeListHorizontalSkeleton";
 
 
 const Home = () => {
@@ -17,12 +18,12 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
     // Fetcher
-    const fetchData = async (url: string): Promise<TopAnime| null> => {
-        try{
+    const fetchData = async (url: string): Promise<TopAnime | null> => {
+        try {
             const data = await Fetcher(url)
             console.log(data)
             return data
-        }catch(err){
+        } catch (err) {
             return null
         }
     }
@@ -31,20 +32,20 @@ const Home = () => {
     useEffect(() => {
         const fetchAllData = async () => {
             try {
-    
+
                 // mengambil data untuk top anime
                 const fetchDataTopAnime = await fetchData('/top/anime')
 
                 // mengurutkan kembali anime berdasarkan rank tertinggi
-                const fetchDataTopAnimeFix =fetchDataTopAnime?.data.sort((a, b) => a.rank - b.rank)
+                const fetchDataTopAnimeFix = fetchDataTopAnime?.data.sort((a, b) => a.rank - b.rank)
 
                 // membuat object baru untuk data Top Anime
-                const dataTopAnimeFix = {data: fetchDataTopAnimeFix, pagination: fetchDataTopAnime?.pagination}
+                const dataTopAnimeFix = { data: fetchDataTopAnimeFix, pagination: fetchDataTopAnime?.pagination }
 
                 // memasukan nilai kedalam DataTopAnime
-                setDataTopAnime(dataTopAnimeFix? fetchDataTopAnime : fetchDataTopAnime)
-                
-    
+                setDataTopAnime(dataTopAnimeFix ? fetchDataTopAnime : fetchDataTopAnime)
+
+
             } catch (err) {
                 // set error true jika mengambil data gagal
                 setError(true)
@@ -58,13 +59,15 @@ const Home = () => {
     }, [])
 
     if (error) return <>website error</>
-    if (isLoading) return <>Loading....</>
 
     return (
         <>
             <section className="">
-                <AnimeListHorizontalHeader/>
-                <AnimeListHorizontal anime={dataTopAnime} rank={true}/>
+                {isLoading ? <AnimeListHorizontalSkeleton /> :
+                    <>
+                        <AnimeListHorizontalHeader title={'Top Anime'} path={'/topanime'} />
+                        <AnimeListHorizontal anime={dataTopAnime} rank={true} />
+                    </>}
             </section>
         </>
     )

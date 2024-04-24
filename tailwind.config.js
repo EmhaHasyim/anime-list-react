@@ -31,6 +31,10 @@ export default {
         theme: {
           dark: '#005c99',
           light: '#007acc'
+        },
+        skeleton: {
+          dark: '#3d3d3d',
+          light: '#c2c2c2'
         }
       },
       fontFamily: {
