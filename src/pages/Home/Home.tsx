@@ -71,14 +71,14 @@ const Home = () => {
     const skeletonLoading = (isLoading: boolean) => {
         return isLoading ? (
             <>
-                <section className="flex flex-col justify-center items-left gap-3">
+                <section className="flex flex-col justify-left items-left gap-3">
                     <AnimeListHorizontalSkeleton />
                     <AnimeListHorizontalSkeleton />
                     <AnimeListHorizontalSkeleton />
                 </section>
             </>
         ) : (
-            <section className="flex flex-col justify-center items-center gap-3">
+            <section className="flex flex-col justify-left items-center gap-3">
                 <section>
                     <AnimeListHorizontalHeader title={'Top Anime'} path={'/topanime'} />
                     <AnimeListHorizontal anime={dataTopAnime} rank={true} />
