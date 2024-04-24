@@ -1,7 +1,7 @@
 const AnimeListHorizontalSkeleton = () => {
     return (
         <section>
-        <section className='w-full h-5'>
+        <section className='w-full h-6'>
             <div className='dark:bg-skeleton-dark bg-skeleton-light h-full w-full rounded animate-pulse'></div>
         </section>
         <section className="overflow-x-auto h-56 mt-1">
