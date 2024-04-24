@@ -12,7 +12,9 @@ const router = createBrowserRouter(
 const App = () => {
     return (
         <>
-            <RouterProvider router={router} />
+            <section className="p-2">
+                <RouterProvider router={router} />
+            </section>
         </>
     )
 }
