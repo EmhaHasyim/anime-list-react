@@ -14,7 +14,7 @@ const Home = () => {
     const [dataTopAnime, setDataTopAnime] = useState<TopAnime | null>(null)
 
     // data untuk season now
-    const [dataSeasonsNow, setDataSeaasonNow] = useState< SeasonsNow | any>(null)
+    const [dataSeasonsNow, setDataSeaasonNow] = useState<SeasonsNow | any>(null)
 
     // data untuk popular anime
     const [dataPopularAnime, setDataPopularAnime] = useState<any>(null)
@@ -40,7 +40,7 @@ const Home = () => {
                 setDataTopAnime(fetchDataTopAnime)
 
                 // mengambil data untuk seasons now
-                const fetchDataSeasonsNow= await Fetcher('/seasons/now')
+                const fetchDataSeasonsNow = await Fetcher('/seasons/now')
 
                 // mnegecualikan anime yang tidak rilis di tahun ini
                 fetchDataSeasonsNow.data = fetchDataSeasonsNow.data.filter((anime: { year: number; }) => anime.year >= 2024)
@@ -78,20 +78,20 @@ const Home = () => {
                 </section>
             </>
         ) : (
-            <section className="flex flex-col justify-left items-center gap-3">
+            <>
                 <section>
                     <AnimeListHorizontalHeader title={'Top Anime'} path={'/topanime'} />
                     <AnimeListHorizontal anime={dataTopAnime} rank={true} />
                 </section>
-                <section>
+                <section className="mt-3"> 
                     <AnimeListHorizontalHeader title={`${Season} ${Year} Anime`} path={'/seasonnow'} />
                     <AnimeListHorizontal anime={dataSeasonsNow} rank={false} />
                 </section>
-                <section>
+                <section className="mt-3">
                     <AnimeListHorizontalHeader title={'Most Popular Anime'} path={'/popular'} />
                     <AnimeListHorizontal anime={dataPopularAnime} rank={false} />
                 </section>
-            </section>
+            </>
         )
     }
 
