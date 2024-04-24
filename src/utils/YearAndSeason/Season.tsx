@@ -1,4 +1,4 @@
-const Season = (): string => {
+const Season = () => {
 
     const currentMonth = new Date().getMonth(); // Bulan dimulai dari 0 (Januari) hingga 11 (Desember)
 

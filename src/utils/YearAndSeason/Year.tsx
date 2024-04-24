@@ -1,4 +1,4 @@
-const Year = (): number | string => {
+const Year = () => {
     return new Date().getFullYear()
 }
 
