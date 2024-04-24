@@ -24,7 +24,10 @@ const AnimeListHorizontal = ({ anime, rank }: { anime: TopAnime | null, rank: bo
         <>
             <section className="overflow-x-auto">
                 <ul className="whitespace-nowrap flex gap-2">
-                    {anime ? anime.data.map((anime) => {
+                    {anime ? anime.data.map((anime, index) => {
+                        if(index > 19){
+                            null
+                        }
                         return (
                             <li key={anime.mal_id}>
                                 <section className="relative h-56 w-full aspect-[2/3] bg-cover bg-center bg-no-repeat overflow-hidden rounded"
