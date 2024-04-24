@@ -5,11 +5,12 @@ import AnimeListHorizontalSkeleton from "@/components/layouts/Animelist/Horizont
 import Fetcher from '@/utils/Fetcher/Fetcher';
 import TopAnime from "@/utils/Interface/TopAnime";
 import SeasonsNow from "@/utils/Interface/SeasonsNow";
-import Season from "@/utils/YearAndSeason/Season";
-import Year from "@/utils/YearAndSeason/Year";
+import YearAndSeason from "@/utils/YearAndSeason/YearAndSeason";
+
 
 const Home = () => {
-
+    const [year, season] = YearAndSeason()
+    
     // data untuk top anime
     const [dataTopAnime, setDataTopAnime] = useState<TopAnime | null>(null)
 
@@ -84,7 +85,7 @@ const Home = () => {
                     <AnimeListHorizontal anime={dataTopAnime} rank={true} />
                 </section>
                 <section className="mt-3"> 
-                    <AnimeListHorizontalHeader title={`${Season} ${Year} Anime`} path={'/seasonnow'} />
+                    <AnimeListHorizontalHeader title={`${season} ${year} Anime`} path={'/seasonnow'} />
                     <AnimeListHorizontal anime={dataSeasonsNow} rank={false} />
                 </section>
                 <section className="mt-3">
