@@ -4,7 +4,7 @@ import SearchBar from "@/utils/SearchBar/SearchBar"
 const Header = () => {
     return (
         <>
-            <header className="z-20 h-12 px-5 flex items-center justify-between dark:bg-theme-dark bg-theme-light">
+            <header className="absolute top-0 w-full left-0 h-12 px-5 flex items-center justify-between dark:bg-theme-dark bg-theme-light">
                 <a className="font-bold text-3xl sm:text-red-500" href="/">AnimeList</a>
                 <section className="flex items-center justify-center gap-3 overflow-hidden">
                     <DarkModeBtn />

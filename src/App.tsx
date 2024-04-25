@@ -13,7 +13,7 @@ const router = createBrowserRouter(
 const App = () => {
     return (
         <>
-            <section className="p-2">
+            <section className="p-2 mt-12">
                 <RouterProvider router={router} />
             </section>
         </>
