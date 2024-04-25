@@ -6,7 +6,7 @@ const SearchBar = () => {
     const [bodyHeight , setBodyHeight] = useState<number>(0)
 
     const handelResize = () => {
-        setBodyHeight(document.body.scrollHeight - 80)
+        setBodyHeight(document.body.scrollHeight - 96)
     }
  
     const handleBtnToDisplaySearchBarInput = () => {
