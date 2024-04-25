@@ -66,7 +66,7 @@ const Home = () => {
         fetchAllData()
     }, [])
 
-    if (error) return <> error reload page </>
+    if (error) return <section>Reload Page</section>
 
     const skeletonLoading = (isLoading: boolean) => {
         return isLoading ? (

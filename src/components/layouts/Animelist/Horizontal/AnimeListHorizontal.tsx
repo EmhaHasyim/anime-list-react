@@ -66,7 +66,6 @@ const AnimeListHorizontal = ({ anime, rank , path}: { anime: TopAnime | null, ra
                 </ul>
             </section>
         </>
-
     )
 }
 
