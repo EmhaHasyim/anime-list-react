@@ -15,14 +15,14 @@ export default {
             secondary: '#292929',
           },
           text: {
-            primary: '#f2f2f2',
-            secondary: '#e6e6e6'
+            primary: '#ebebeb',
+            secondary: '#d6d6d6'
           }
         },
         light: {
           background: {
-            primary: '#f2f2f2',
-            secondary: '#e6e6e6',
+            primary: '#ebebeb',
+            secondary: '#d6d6d6',
           },
           text: {
             primary: '#141414',
