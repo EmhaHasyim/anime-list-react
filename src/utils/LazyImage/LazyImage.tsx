@@ -36,7 +36,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, ...props }) => {
                         });
                     },
                     {
-                        threshold: 0.01,
+                        threshold: 10,
                         rootMargin: '448px',
                     }
                 );
