@@ -1,7 +1,6 @@
 import TopAnime from "@/utils/Interface/TopAnime"
 import { Link } from "react-router-dom"
 import { TagSimple, Star, User, DotsThreeOutline } from "@phosphor-icons/react"
-import LazyImage from "@/utils/LazyImage/LazyImage"
 
 const AnimeListHorizontal = ({ anime, rank , path}: { anime: TopAnime | null, rank: boolean , path: string}) => {
 
@@ -32,7 +31,7 @@ const AnimeListHorizontal = ({ anime, rank , path}: { anime: TopAnime | null, ra
                         return (
                             <li key={anime.mal_id}>
                                 <section className="relative h-56 w-full aspect-[2/3] bg-cover bg-center bg-no-repeat overflow-hidden rounded">
-                                    <LazyImage src={`${anime.images.webp.large_image_url}`} alt={`poster`}/>
+                                    <img src={anime.images.webp.large_image_url} alt='poster' loading="lazy"/>
                                     <Link to={`/anime/${anime.mal_id}`} className="absolute bg-transparent dark:bg-transparent w-full h-full left-0 top-0" />
                                     <section className="absolute bg-black bg-opacity-70 bottom-0 left-0 h-10 w-full flex flex-col py-0.5 px-1 text-xs text-white justify-center items-left">
                                         {tagRank(rank, anime.rank)}
