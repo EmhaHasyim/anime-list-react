@@ -5,7 +5,7 @@ const [year] = YearAndSeason()
 
 const Footer = () => {
     return (
-        <footer className="mt-auto w-full px-5 py-1 flex flex-col items-center justify-center dark:bg-transparent bg-transparent">
+        <footer className="mt-auto w-full px-5 py-2 flex flex-col items-center justify-center dark:bg-transparent bg-transparent">
             <div className="flex items-center justify-center">
                 <a href="https://github.com/EmhaHasyim" className="hover:dark:text-dark-text-secondary hover:text-light-text-secondary">
                     <GithubLogo size={32} weight="bold"/>
