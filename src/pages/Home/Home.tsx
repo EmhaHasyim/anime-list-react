@@ -49,7 +49,6 @@ const Home = () => {
                 // memasukan nilai kedalam dataSeasonsNow
                 setDataSeaasonNow(fetchDataSeasonsNow)
 
-
                 // mengambil data untuk popular anime
                 const fetchDataPopularAnime = await Fetcher('/anime?order_by=popularity')
 
@@ -81,16 +80,16 @@ const Home = () => {
         ) : (
             <>
                 <section>
-                    <AnimeListHorizontalHeader title={'Top Anime'} path={'/topanime'} />
-                    <AnimeListHorizontal anime={dataTopAnime} rank={true} />
+                    <AnimeListHorizontalHeader title={'Top Anime'} path={'/topanime'}/>
+                    <AnimeListHorizontal anime={dataTopAnime} rank={true} path={'/topanime'}/>
                 </section>
                 <section className="mt-3"> 
                     <AnimeListHorizontalHeader title={`${season} ${year} Anime`} path={'/seasonnow'} />
-                    <AnimeListHorizontal anime={dataSeasonsNow} rank={false} />
+                    <AnimeListHorizontal anime={dataSeasonsNow} rank={false} path={'/seasonnow'}/>
                 </section>
                 <section className="mt-3">
-                    <AnimeListHorizontalHeader title={'Most Popular Anime'} path={'/popular'} />
-                    <AnimeListHorizontal anime={dataPopularAnime} rank={false} />
+                     <AnimeListHorizontalHeader title={'Most Popular Anime'} path={'/popular'} />
+                     <AnimeListHorizontal anime={dataPopularAnime} rank={false} path={'popular'}/>
                 </section>
             </>
         )

@@ -12,20 +12,21 @@ export default {
         dark: {
           background: {
             primary: '#141414',
-            secondary: '#242424',
+            secondary: '#292929',
           },
           text: {
-            primary: '#fafafa'
+            primary: '#f2f2f2',
+            secondary: '#e6e6e6'
           }
         },
         light: {
           background: {
-            primary: '#fafafa',
-            secondary: '#ebebeb',
+            primary: '#f2f2f2',
+            secondary: '#e6e6e6',
           },
           text: {
             primary: '#141414',
-            secondary: '#242424'
+            secondary: '#292929'
           }
         },
         theme: {
