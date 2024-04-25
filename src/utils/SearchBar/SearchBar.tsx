@@ -1,12 +1,20 @@
 import { MagnifyingGlass } from "@phosphor-icons/react"
+import { useState } from "react"
 
 const SearchBar = () => {
+
+    const [bodyHeight , setBodyHeight] = useState<number>(0)
+
+    const handelResize = () => {
+        setBodyHeight(document.body.scrollHeight - 80)
+    }
  
     const handleBtnToDisplaySearchBarInput = () => {
         const searchBarInput = document.getElementById('searchBarInput')
         searchBarInput?.classList.toggle('hidden')
         const coverBlack = document.getElementById('coverBlack')
         coverBlack?.classList.toggle('hidden')
+        handelResize()
     }
 
 
@@ -23,7 +31,7 @@ const SearchBar = () => {
                     </button>
                 </label>
             </section>
-            <section id="coverBlack" className="z-20 hidden absolute min-h-screen h-full w-full bg-black bg-opacity-45 left-0 top-24">
+            <section id="coverBlack" style={{minHeight: bodyHeight}} className={`hidden z-[21] absolute w-full bg-black bg-opacity-45 left-0 top-24`}>
 
             </section>
         </>
