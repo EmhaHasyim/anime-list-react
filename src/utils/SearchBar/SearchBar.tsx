@@ -4,15 +4,21 @@ import { useNavigate } from "react-router-dom"
 
 const SearchBar = () => {
 
+    // navigate
     const navigate = useNavigate()
+
+    // nilai untuk search
     const searchRef = useRef<HTMLInputElement>(null)
+
+    // nila dari tinggi body
     const [bodyHeight , setBodyHeight] = useState<number>(0)
 
-
+    // untuk mengatur tinggi cover black
     const handelResize = () => {
         setBodyHeight(document.body.scrollHeight - 96)
     }
  
+    // untuk menampilan funsi search
     const handleBtnToDisplaySearchBarInput = () => {
         handelResize()
         const searchBarInput = document.getElementById('searchBarInput')
@@ -21,12 +27,14 @@ const SearchBar = () => {
         coverBlack?.classList.toggle('hidden')
     }
 
+    // untuk search saat tekan enter
     const handleInputSearch = (event: React.KeyboardEvent<HTMLInputElement>) => { 
         if (event.key === 'Enter' && searchRef.current) {
             navigate(`/search/${searchRef.current.value}`, {relative: 'path'})
         }
     }
 
+    // untuk search saat button ditekan
     const handleBtnSearch = () => {
         if(searchRef.current){
             navigate(`/search/${searchRef.current.value}`, {relative: 'path'})
