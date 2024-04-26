@@ -31,7 +31,8 @@ export default {
         },
         theme: {
           dark: '#005c99',
-          light: '#007acc'
+          light: '#007acc',
+          
         },
         skeleton: {
           dark: '#3d3d3d',

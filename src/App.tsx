@@ -1,21 +1,18 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import Footer from "./components/layouts/Footer/Footer";
+import Header from "./components/layouts/Header/Header";
 import Home from "./pages/Home/Home";
-
-
-const router = createBrowserRouter(
-    createRoutesFromElements(
-        <>
-            <Route path="/" element={<Home />} />
-        </>
-    )
-)
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
     return (
         <>
-            <section className="p-2">
-                <RouterProvider router={router} />
-            </section>
+            <Router>
+                <Header/>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                </Routes>
+                <Footer/>
+            </Router>
         </>
     )
 }
