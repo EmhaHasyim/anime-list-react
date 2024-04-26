@@ -38,15 +38,15 @@ const SearchBar = () => {
             <button onClick={() => handleBtnToDisplaySearchBarInput()}>
                 <MagnifyingGlass size={32} weight="bold" />
             </button>
-            <section id="searchBarInput" className="z-[1] hidden absolute duration-75 w-full h-12 left-0 top-12 flex justify-center items-center bg-theme-light dark:bg-theme-dark border-t-2 border-theme-light ease-in-out transition-all">
+            <section id="searchBarInput" className="z-[1] hidden absolute duration-75 w-full h-12 left-0 top-12 flex justify-center items-center bg-theme-light dark:bg-theme-dark border-t-2 border-theme-dark dark:border-theme-light ease-in-out transition-all">
                 <label htmlFor="searchValue" className="w-8/12 relative">
                     <input onKeyDown={handleInputSearch} ref={searchRef} type="text" placeholder="Search..." className="w-full px-2 py-0.5 h-8 focus:outline-none bg-transparent border-2 rounded  dark:border-dark-background-primary border-light-background-primary" form="searchValue" />
-                    <button onClick={() => handleBtnSearch} className="absolute right-0 w-8 h-8 border-y-2 border-r-2 rounded-r bg-dark-background-primary dark:border-dark-background-primary">
+                    <button onClick={() => handleBtnSearch} className="absolute right-0 w-8 h-8 border-y-2 border-r-2 rounded-r dark:bg-dark-background-primary dark:border-dark-background-primary bg-light-background-primary border-light-background-primary">
                         <MagnifyingGlass size={23} weight="bold" className="mx-auto" />
                     </button>
                 </label>
             </section>
-            <section id="coverBlack" style={{minHeight: bodyHeight}} className={`hidden z-[21] absolute w-full bg-black bg-opacity-45 left-0 top-24`}>
+            <section id="coverBlack" style={{minHeight: bodyHeight}} className={`hidden z-[21] absolute w-full bg-black bg-opacity-60 left-0 top-24`}>
 
             </section>
         </>
