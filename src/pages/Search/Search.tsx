@@ -24,31 +24,38 @@ const Search = () => {
     // mengambil data saat halaman dimasuki
     useEffect(() => {
         const fetchDataSearch = async () => {
-            try{
+            try {
                 // mengambil data dari api
                 const res = await Fetcher(`/anime?q=${valueSearch}&type=tv`)
 
-                res.data.sort((a: { members: number },b: { members: number }) => b.members - a.members)
+                res.data.sort((a: { members: number }, b: { members: number }) => b.members - a.members)
 
                 console.log(res)
                 // mengset data dari api
                 setDataSearchAnime(res)
-            }catch(err){
+            } catch (err) {
                 // merubah kondisi error
                 setError(true)
-            }finally{
+            } finally {
                 // merubah kondisi loading
                 setIsLoading(false)
             }
         }
         fetchDataSearch()
-    },[valueSearch])
+    }, [valueSearch])
 
     // kondisi error
-    if(error){<>Reaload Page</>}
+    if (error) { return <>Reaload Page</> }
 
     // kondisi loading
-    if(isLoading){<AnimeListVertikalSkeleton valueSearch={valueSearch}/>}
+    if (isLoading == true) {
+        return (
+            <>
+                <AnimeListVertikalSkeleton valueSearch={valueSearch} />
+            </>
+        )
+    }
+
 
     return (
         <>
