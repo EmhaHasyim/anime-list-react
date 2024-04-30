@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Fetcher from "@/utils/Fetcher/Fetcher"
+import AnimeListVertikal from "@/components/layouts/Animelist/Vertikal/AnimeListVertikal"
+import SearchAnime from "@/utils/Interface/SearchAnime"
+import AnimeListVertikalSkeleton from "@/components/layouts/Animelist/Vertikal/AnimeListVertikalSkeleton"
 
 const Search = () => {
     // params
@@ -10,7 +13,7 @@ const Search = () => {
     const valueSearch: string | undefined = params.valueSearch
 
     // data untuk search anime
-    const [dataSearchAnime, setDataSearchAnime] = useState<any>(null)
+    const [dataSearchAnime, setDataSearchAnime] = useState<null | SearchAnime>(null)
 
     // kondisi untuk error
     const [error, setError] = useState<boolean>(false)
@@ -23,8 +26,11 @@ const Search = () => {
         const fetchDataSearch = async () => {
             try{
                 // mengambil data dari api
-                const res = await Fetcher(`/anime?q=${valueSearch}`)
+                const res = await Fetcher(`/anime?q=${valueSearch}&type=tv`)
 
+                res.data.sort((a: { members: number },b: { members: number }) => b.members - a.members)
+
+                console.log(res)
                 // mengset data dari api
                 setDataSearchAnime(res)
             }catch(err){
@@ -42,11 +48,11 @@ const Search = () => {
     if(error){<>Reaload Page</>}
 
     // kondisi loading
-    if(isLoading){<>Loading...</>}
+    if(isLoading){<AnimeListVertikalSkeleton valueSearch={valueSearch}/>}
 
     return (
         <>
-            <h1>Search Page</h1>
+            <AnimeListVertikal anime={dataSearchAnime} valueSearch={valueSearch}/>
         </>
     )
 }
