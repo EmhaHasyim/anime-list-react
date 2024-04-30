@@ -18,7 +18,7 @@ const AnimeListVertikal = ({ anime, valueSearch }: { anime: SearchAnime | null ,
         <>
             <section className="overflow-y-auto">
                 <h1 className="text-2xl w-full text-center py-2">Hasil Untuk: <span className="font-bold">{valueSearchFix(valueSearch)}</span></h1>
-                <ul className="grid grid-cols-3 gap-2">
+                <ul className="grid grid-cols-2 gap-2">
                     {anime?.data.map((anime) => {
                         return (
                             <li key={anime.mal_id}>
