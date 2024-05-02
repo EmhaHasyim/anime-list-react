@@ -3,6 +3,7 @@ import DetailAnime from "@/utils/Interface/DetailAnime"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Trailer from "./TrailerVideo/Trailer"
+import Information from "./Information/Information"
 
 
 const Anime = () => {
@@ -41,6 +42,7 @@ const Anime = () => {
     return (
         <>
         <Trailer LinkVideo={dataDetailAnime?.data.trailer.embed_url} title={dataDetailAnime?.data.title}/>
+        <Information anime={dataDetailAnime}/>
         </>
     )
 }
