@@ -50,6 +50,11 @@ const Search = () => {
         fetchDataSearch()
     }, [valueSearch, valueType])
 
+    // menghilangkan %
+    const valueSearchFix = (): string | undefined => {
+        return valueSearch?.replace(/%/g, "")
+    }
+
     // kondisi error
     if (error) { return <>Reaload Page</> }
 
@@ -57,7 +62,8 @@ const Search = () => {
     if (isLoading) {
         return (
             <>
-                <AnimeListVertikalSkeleton valueSearch={valueSearch} />
+                <h1 className="w-full text-center py-2 text-2xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
+                <AnimeListVertikalSkeleton />
             </>
         )
     }
@@ -65,7 +71,8 @@ const Search = () => {
 
     return (
         <>
-            <AnimeListVertikal anime={dataSearchAnime} valueSearch={valueSearch}/>
+            <h1 className="w-full text-center py-2 text-2xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
+            <AnimeListVertikal anime={dataSearchAnime} />
         </>
     )
 }

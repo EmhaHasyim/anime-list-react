@@ -2,22 +2,16 @@ import SearchAnime from "@/utils/Interface/SearchAnime"
 import { Star,User } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
 
-const AnimeListVertikal = ({ anime, valueSearch }: { anime: SearchAnime | null , valueSearch: string | undefined}) => {
+const AnimeListVertikal = ({ anime }: { anime: SearchAnime | null }) => {
 
     // membernarkan members
     const membersFix = (members: number): string => {
         return members.toLocaleString();
-    }
-
-    // menghilangkan %
-    const valueSearchFix = (valueSearch: string | undefined): string | undefined => {
-        return valueSearch?.replace(/%/g, "")
-    }
+    }    
 
     return (
         <>
             <section className="overflow-y-auto">
-                <h1 className="text-2xl w-full text-center py-2">Hasil Untuk: <span className="font-bold">{valueSearchFix(valueSearch)}</span></h1>
                 <ul className="grid grid-cols-2 gap-2">
                     {anime?.data.map((anime) => {
                         return (
