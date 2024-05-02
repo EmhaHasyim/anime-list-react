@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Trailer from "./TrailerVideo/Trailer"
 import Information from "./Information/Information"
+import Synopsis from "./Synopsis/Synopsis"
 
 
 const Anime = () => {
@@ -43,6 +44,7 @@ const Anime = () => {
         <>
         <Trailer LinkVideo={dataDetailAnime?.data.trailer.embed_url} title={dataDetailAnime?.data.title}/>
         <Information anime={dataDetailAnime}/>
+        <Synopsis synopsis={dataDetailAnime?.data.synopsis} background={dataDetailAnime?.data.background}/>
         </>
     )
 }
