@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import Fetcher from "@/utils/Fetcher/Fetcher"
 import AnimeListVertikal from "@/components/layouts/Animelist/Vertikal/AnimeListVertikal"
 import SearchAnime from "@/utils/Interface/SearchAnime"
@@ -9,8 +9,14 @@ const Search = () => {
     // params
     const params = useParams()
 
+    // search params
+    const [searchParams] = useSearchParams()
+
     // mengambil params dari valueSearch
     const valueSearch: string | undefined = params.valueSearch
+
+    // mengambil params dari type
+    const valueType = searchParams.get('type')
 
     // data untuk search anime
     const [dataSearchAnime, setDataSearchAnime] = useState<null | SearchAnime>(null)
@@ -26,11 +32,11 @@ const Search = () => {
         const fetchDataSearch = async () => {
             try {
                 // mengambil data dari api
-                const res = await Fetcher(`/anime?q=${valueSearch}&type=tv`)
+                const res = await Fetcher(`/anime?q=${valueSearch}&type=${valueType}`)
 
+                // mengurutkan dari member terbesar
                 res.data.sort((a: { members: number }, b: { members: number }) => b.members - a.members)
 
-                console.log(res)
                 // mengset data dari api
                 setDataSearchAnime(res)
             } catch (err) {
@@ -42,16 +48,22 @@ const Search = () => {
             }
         }
         fetchDataSearch()
-    }, [valueSearch])
+    }, [valueSearch, valueType])
+
+    // menghilangkan %
+    const valueSearchFix = (): string | undefined => {
+        return valueSearch?.replace(/%/g, "")
+    }
 
     // kondisi error
     if (error) { return <>Reaload Page</> }
 
     // kondisi loading
-    if (isLoading == true) {
+    if (isLoading) {
         return (
             <>
-                <AnimeListVertikalSkeleton valueSearch={valueSearch} />
+                <h1 className="w-full text-center py-2 text-2xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
+                <AnimeListVertikalSkeleton />
             </>
         )
     }
@@ -59,7 +71,8 @@ const Search = () => {
 
     return (
         <>
-            <AnimeListVertikal anime={dataSearchAnime} valueSearch={valueSearch}/>
+            <h1 className="w-full text-center py-2 text-2xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
+            <AnimeListVertikal anime={dataSearchAnime} />
         </>
     )
 }
