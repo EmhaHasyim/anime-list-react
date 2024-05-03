@@ -1,5 +1,5 @@
 import AnimeCharacter from "@/utils/Interface/AnimeCharacter"
-import { DotsThree, DotsThreeOutline } from "@phosphor-icons/react"
+import {DotsThreeOutline } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
 
 const CharaterDetail = ({ character }: { character: AnimeCharacter | null }) => {
