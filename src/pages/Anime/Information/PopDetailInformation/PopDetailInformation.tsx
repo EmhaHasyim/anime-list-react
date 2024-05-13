@@ -82,19 +82,22 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                 Producers
                             </td>
                             <td className="text-left px-1 text-blue-600">
-                                {anime?.data.producers.map((producers, index) => {
-                                    return (
-                                        <Fragment key={producers.mal_id}>
-                                            {index > 0 && <>, </>}
-                                            <a
-                                                href={`/producers/${producers.mal_id}`}
-                                                className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
-                                            >
-                                                {producers.name}
-                                            </a>
-                                        </Fragment>
-                                    );
-                                })}
+                                {anime?.data.producers.length
+                                    ?
+                                    anime?.data.producers.map((producers, index) => {
+                                        return (
+                                            <Fragment key={producers.mal_id}>
+                                                {index > 0 && <>, </>}
+                                                <a
+                                                    href={`/producers/${producers.mal_id}`}
+                                                    className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
+                                                >
+                                                    {producers.name}
+                                                </a>
+                                            </Fragment>
+                                        );
+                                    })
+                                    : <>Unknown</>}
                             </td>
                         </tr>
                         <tr className="">
@@ -117,7 +120,7 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                             </Fragment>
                                         )
                                     })
-                                    : <span>Unknown</span>
+                                    : <>Unknown</>
                                 }
                             </td>
                         </tr>
@@ -141,7 +144,7 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                             </Fragment>
                                         );
                                     })
-                                    : <span>Unknown</span>
+                                    : <>Unknown</>
                                 }
                             </td>
                         </tr>
@@ -156,19 +159,23 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                 Genres
                             </td>
                             <td className="text-left px-1">
-                                {anime?.data.genres.map((genres, index) => {
-                                    return (
-                                        <Fragment key={genres.mal_id}>
-                                            {index > 0 && <>, </>}
-                                            <a
-                                                href={`/genres/${genres.mal_id}`}
-                                                className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
-                                            >
-                                                {genres.name}
-                                            </a>
-                                        </Fragment>
-                                    );
-                                })}
+                                {anime?.data.genres.length
+                                    ?
+                                    anime?.data.genres.map((genres, index) => {
+                                        return (
+                                            <Fragment key={genres.mal_id}>
+                                                {index > 0 && <>, </>}
+                                                <a
+                                                    href={`/genres/${genres.mal_id}`}
+                                                    className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
+                                                >
+                                                    {genres.name}
+                                                </a>
+                                            </Fragment>
+                                        );
+                                    })
+                                    : <>Unknown</>
+                                }
                             </td>
                         </tr>
                         <tr>
@@ -176,19 +183,22 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                 Themes
                             </td>
                             <td className="text-left px-1">
-                                {anime?.data.themes.map((themes, index) => {
-                                    return (
-                                        <Fragment key={themes.mal_id}>
-                                            {index > 0 && <>, </>}
-                                            <a
-                                                href={`/themes/${themes.mal_id}`}
-                                                className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
-                                            >
-                                                {themes.name}
-                                            </a>
-                                        </Fragment>
-                                    );
-                                })}
+                                {anime?.data.themes.length
+                                    ?
+                                    anime?.data.themes.map((themes, index) => {
+                                        return (
+                                            <Fragment key={themes.mal_id}>
+                                                {index > 0 && <>, </>}
+                                                <a
+                                                    href={`/themes/${themes.mal_id}`}
+                                                    className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
+                                                >
+                                                    {themes.name}
+                                                </a>
+                                            </Fragment>
+                                        );
+                                    })
+                                    : <>Unknown</>}
                             </td>
                         </tr>
                         <tr>
@@ -196,19 +206,23 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                 Demographics
                             </td>
                             <td className="text-left px-1">
-                                {anime?.data.demographics.map((Demographics, index) => {
-                                    return (
-                                        <Fragment key={Demographics.mal_id}>
-                                            {index > 0 && <>, </>}
-                                            <a
-                                                href={`/genres/${Demographics.mal_id}`}
-                                                className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
-                                            >
-                                                {Demographics.name}
-                                            </a>
-                                        </Fragment>
-                                    );
-                                })}
+                                {anime?.data.demographics.length
+                                    ?
+                                    anime?.data.demographics.map((Demographics, index) => {
+                                        return (
+                                            <Fragment key={Demographics.mal_id}>
+                                                {index > 0 && <>, </>}
+                                                <a
+                                                    href={`/genres/${Demographics.mal_id}`}
+                                                    className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
+                                                >
+                                                    {Demographics.name}
+                                                </a>
+                                            </Fragment>
+                                        );
+                                    })
+                                    : <>Unknown</>
+                                }
                             </td>
                         </tr>
                         <tr className="">
