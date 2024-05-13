@@ -2,11 +2,30 @@ import DetailAnime from "@/utils/Interface/DetailAnime"
 import { CaretRight, Star } from "@phosphor-icons/react"
 import { Link } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
+import PopDetailInformation from "./PopDetailInformation/PopDetailInformation";
+import { useState } from "react";
 
 const DetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
 
+    // nila dari tinggi body
+    const [bodyHeight, setBodyHeight] = useState<number>(0)
+
+    // untuk mengatur tinggi cover black
+    const handelResize = () => {
+        setBodyHeight(document.body.scrollHeight)
+    }
+
+    // membenarkan nilai
     const membersFix = (members: number | undefined): string | undefined => {
         return members?.toLocaleString();
+    }
+
+    // fungsi untuk menampilan informasi
+    const handleBtnInformation = ():void => {
+        handelResize()
+        const popInfomation = document.getElementById('popInfomation')
+        popInfomation?.classList.toggle('hidden')
+        popInfomation?.classList.toggle('flex')
     }
 
     return (
@@ -57,8 +76,12 @@ const DetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                             })}
                         </section>
                     </section>
-                    <button className="flex items-center text-theme-dark hover:text-theme-light dark:text-theme-light dark:hover:text-theme-dark"><CaretRight size={18} weight="fill"/>More Information</button>
+                    <button onClick={() => handleBtnInformation()} className="flex items-center text-theme-dark hover:text-theme-light dark:text-theme-light dark:hover:text-theme-dark"><CaretRight size={18} weight="fill"/>More Information</button>
                 </section>
+            </section>
+            <section id="popInfomation" style={{ minHeight: bodyHeight }} className="hidden z-20 absolute left-0 top-0 w-full items-start py-40 px-7 justify-center">
+                <button onClick={() => handleBtnInformation()} className="-z-[1] absolute w-full h-full left-0 top-0 bg-black bg-opacity-50"></button>
+                <PopDetailInformation anime={anime}/>
             </section>
         </>
     )
