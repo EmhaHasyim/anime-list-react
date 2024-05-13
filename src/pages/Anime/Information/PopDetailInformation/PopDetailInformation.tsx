@@ -102,17 +102,23 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                 Licensors
                             </td>
                             <td className="text-left px-1">
-                                {anime?.data.licensors.map((licensor, index) => (
-                                    <Fragment key={licensor.mal_id}>
-                                        {index > 0 && <>, </>}
-                                        <a
-                                            href={`/licensors/${licensor.mal_id}`}
-                                            className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
-                                        >
-                                            {licensor.name}
-                                        </a>
-                                    </Fragment>
-                                ))}
+                                {anime?.data.licensors.length
+                                    ?
+                                    anime?.data.licensors.map((licensor, index) => {
+                                        return (
+                                            <Fragment key={licensor.mal_id}>
+                                                {index > 0 && <>, </>}
+                                                <a
+                                                    href={`/licensors/${licensor.mal_id}`}
+                                                    className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
+                                                >
+                                                    {licensor.name}
+                                                </a>
+                                            </Fragment>
+                                        )
+                                    })
+                                    : <span>Unknown</span>
+                                }
                             </td>
                         </tr>
                         <tr>
@@ -120,19 +126,23 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                                 Studios
                             </td>
                             <td className="text-left px-1">
-                                {anime?.data.studios.map((studios, index) => {
-                                    return (
-                                        <Fragment key={studios.mal_id}>
-                                            {index > 0 && <>, </>}
-                                            <a
-                                                href={`/studios/${studios.mal_id}`}
-                                                className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
-                                            >
-                                                {studios.name}
-                                            </a>
-                                        </Fragment>
-                                    );
-                                })}
+                                {anime?.data.studios.length
+                                    ?
+                                    anime?.data.studios.map((studios, index) => {
+                                        return (
+                                            <Fragment key={studios.mal_id}>
+                                                {index > 0 && <>, </>}
+                                                <a
+                                                    href={`/studios/${studios.mal_id}`}
+                                                    className="text-theme-light hover:text-theme-dark dark:text-theme-dark dark:hover:text-theme-light font-medium"
+                                                >
+                                                    {studios.name}
+                                                </a>
+                                            </Fragment>
+                                        );
+                                    })
+                                    : <span>Unknown</span>
+                                }
                             </td>
                         </tr>
                         <tr>
@@ -143,7 +153,7 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
                         </tr>
                         <tr>
                             <td className="text-right align-text-top px-1 text-light-text-primary dark:text-dark-text-primary">
-                                Studios
+                                Genres
                             </td>
                             <td className="text-left px-1">
                                 {anime?.data.genres.map((genres, index) => {
