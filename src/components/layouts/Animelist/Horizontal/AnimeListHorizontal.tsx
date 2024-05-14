@@ -23,7 +23,7 @@ const AnimeListHorizontal = ({ anime, rank , path}: { anime: TopAnime | null, ra
     return (
         <>
             {/* <section className="overflow-x-auto dark:bg-dark-background-primary"> */}
-                <ul className="whitespace-nowrap flex gap-2">
+                <ul className="whitespace-nowrap overflow-x-auto flex gap-2">
                     {anime ? anime.data.map((anime, index) => {
                         if (index > 14) {
                             return null
