@@ -43,7 +43,7 @@ const DarkModeBtn = () => {
 
     return (
         <>
-            <button className="flex justify-center items-center h-8 w-8 rounded-full"
+            <button className="flex justify-center items-center h-8 w-8 rounded-full md:h-9 md:w-9"
                 onClick={() => handleBtnDarkBtn()}>
                 {displayInBTnDarkBtn()}
             </button>
