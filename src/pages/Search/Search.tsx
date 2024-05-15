@@ -62,7 +62,7 @@ const Search = () => {
     if (isLoading) {
         return (
             <>
-                <h1 className="w-full text-center py-2 text-2xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
+                <h1 className="w-full text-center py-2 text-2xl md:text-3xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
                 <AnimeListVertikalSkeleton />
             </>
         )
@@ -71,7 +71,7 @@ const Search = () => {
 
     return (
         <>
-            <h1 className="w-full text-center py-2 text-2xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
+            <h1 className="w-full text-center py-2 text-2xl md:text-3xl">Search Result: <span className="font-bold">{valueSearchFix()}</span></h1>
             <AnimeListVertikal anime={dataSearchAnime} />
         </>
     )
