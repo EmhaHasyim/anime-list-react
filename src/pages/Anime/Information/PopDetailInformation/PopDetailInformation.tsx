@@ -7,7 +7,7 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
     return (
         <>
             <section className="bg-light-background-secondary dark:bg-dark-background-secondary text-light-text-secondary dark:text-dark-text-secondary p-5 rounded">
-                <table className="table-auto text-xs">
+                <table className="table-auto text-xs md:text-sm lg:text-base">
                     <tbody className="w-full">
                         <tr className="">
                             <td className="text-right align-text-top px-1 text-light-text-primary dark:text-dark-text-primary">
