@@ -17,7 +17,7 @@ const Synopsis = ({ synopsis, background }: { synopsis: string | undefined, back
         <>
             <section
                 id="synopsis"
-                className="h-[100px] bg-light-background-secondary dark:bg-dark-background-secondary mt-1.5 overflow-hidden relative px-2 py-1 pb-7"
+                className="h-[100px] bg-light-background-secondary dark:bg-dark-background-secondary overflow-hidden relative px-2 py-1 pb-7"
             >
                 <h1 className="text-primary font-semibold">Synopsis</h1>
                 <p className="text-wrap text-start whitespace-pre-line">
