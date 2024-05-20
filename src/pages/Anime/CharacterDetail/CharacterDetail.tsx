@@ -14,7 +14,7 @@ const CharaterDetail = ({ character }: { character: AnimeCharacter | null }) => 
                                 <section className="relative h-36 aspect-[2/3] rounded-sm overflow-hidden sm:h-40 md:h-44 lg:h-48">
                                     <img src={character.character.images.webp.image_url} alt={character.character.name} loading="lazy" />
                                     <Link to={`/charaters/${character.character.mal_id}`} className="w-full h-full absolute top-0 left-0" />
-                                    <p className="text-xs text-left px-1 py-0.5 truncate align-middle bg-black bg-opacity-80 absolute left-0 -bottom-0 w-full md:text-sm lg:text-base">
+                                    <p className="text-xs text-left px-1 py-0.5 truncate align-middle bg-black text-white bg-opacity-80 absolute left-0 -bottom-0 w-full md:text-sm lg:text-base">
                                         {character.character.name}
                                     </p>
                                 </section>
@@ -28,7 +28,7 @@ const CharaterDetail = ({ character }: { character: AnimeCharacter | null }) => 
                                             <section key={data.person.mal_id} className="relative h-36 aspect-[2/3] rounded-sm overflow-hidden sm:h-40 md:h-44 lg:h-48">
                                                 <img src={data.person.images.jpg.image_url} alt={data.person.name} loading="lazy" />
                                                 <Link to={`/people/${data.person.mal_id}`} className="w-full h-full absolute top-0 left-0"/>
-                                                <p className="text-xs text-left px-1 py-0.5 truncate align-middle bg-black bg-opacity-80 absolute left-0 -bottom-0 w-full md:text-sm lg:text-base">
+                                                <p className="text-xs text-left px-1 py-0.5 truncate align-middle bg-black text-white bg-opacity-80 absolute left-0 -bottom-0 w-full md:text-sm lg:text-base">
                                                     {data.person.name}
                                                 </p>
                                             </section>

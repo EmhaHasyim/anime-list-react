@@ -27,7 +27,7 @@ const Synopsis = ({ synopsis, background }: { synopsis: string | undefined, back
                 <p className="text-wrap text-start whitespace-pre-line">
                     {background}
                 </p>
-                <section className="bg-gradient-to-t from-dark-background-primary to-dark-background-secondary h-7 w-full absolute -bottom-0 z-10 left-0">
+                <section className="bg-gradient-to-t from-light-background-primary to-light-background-secondary dark:from-dark-background-primary dark:to-dark-background-secondary h-7 w-full absolute -bottom-0 z-10 left-0">
                     <button
                         className="absolute -bottom-0 end-3 text-primary flex items-center gap-1"
                         onClick={() => readMore()}
