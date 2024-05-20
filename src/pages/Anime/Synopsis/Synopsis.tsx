@@ -19,11 +19,11 @@ const Synopsis = ({ synopsis, background }: { synopsis: string | undefined, back
                 id="synopsis"
                 className="h-[100px] bg-light-background-secondary dark:bg-dark-background-secondary overflow-hidden relative px-2 py-1 pb-7 md:text-lg"
             >
-                <h1 className="text-primary font-semibold">Synopsis</h1>
+                <h1 className="text-primary font-semibold md:text-2xl">Synopsis</h1>
                 <p className="text-wrap text-start whitespace-pre-line">
                     {synopsis}
                 </p>
-                <h1 className="text-primary font-semibold mt-5">Backround</h1>
+                <h1 className="text-primary font-semibold mt-5 md:text-2xl">Backround</h1>
                 <p className="text-wrap text-start whitespace-pre-line">
                     {background}
                 </p>
