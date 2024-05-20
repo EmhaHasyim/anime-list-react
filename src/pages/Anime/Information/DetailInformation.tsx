@@ -30,7 +30,7 @@ const DetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
 
     return (
         <>
-            <section className="flex justify-center items-center gap-1.5 w-full mt-1.5 mx-2 sm:mx-0 lg:h-4/5">
+            <section className="flex justify-center items-center gap-1.5 w-full mt-1.5 mx-2 sm:mx-0 md:text-lg lg:h-4/5 lg:text-xl">
                 <img src={anime?.data.images.webp.large_image_url} loading="lazy" className="rounded aspect-[2/3] h-60 sm:h-64 md:h-72 lg:h-full" />
                 <section className="flex justify-around items-start flex-col w-full h-60 rounded p-2 bg-light-background-secondary dark:bg-dark-background-secondary sm:h-64 md:h-72 lg:h-full">
                     <section className="flex justify-left items-center gap-1 text-2xl"><Star size={32} />{anime?.data.score} {`(#${anime?.data.rank})`}</section>
