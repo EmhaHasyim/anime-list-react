@@ -8,6 +8,7 @@ import Synopsis from "./Synopsis/Synopsis"
 import CharaterDetail from "./CharacterDetail/CharacterDetail"
 import AnimeCharacter from "@/utils/Interface/AnimeCharacter"
 import ThemeMusic from "./ThemeMusic/ThemeMusic"
+import RelationAnime from "./RelationsAnime/RelationsAnime"
 
 
 const Anime = () => {
@@ -76,6 +77,9 @@ const Anime = () => {
             </div>
             <div className="row-start-5 row-end-6 col-start-1 col-end-5">
                 <ThemeMusic theme={dataDetailAnime?.data.theme}/>
+            </div>
+            <div className="row-start-6 row-end-7 col-start-1 col-end-5">
+                <RelationAnime relation={dataDetailAnime?.data.relations}/>
             </div>
         </section>
         </>
