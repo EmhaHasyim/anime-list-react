@@ -7,6 +7,7 @@ import Information from "./Information/Information"
 import Synopsis from "./Synopsis/Synopsis"
 import CharaterDetail from "./CharacterDetail/CharacterDetail"
 import AnimeCharacter from "@/utils/Interface/AnimeCharacter"
+import ThemeMusic from "./ThemeMusic/ThemeMusic"
 
 
 const Anime = () => {
@@ -72,6 +73,9 @@ const Anime = () => {
             </div>
             <div className="row-start-4 row-end-5 col-start-1 col-end-5 sm:row-start-3 sm:row-end-4">
             <CharaterDetail character={dataCharacterDetail} />
+            </div>
+            <div className="row-start-5 row-end-6 col-start-1 col-end-5">
+                <ThemeMusic theme={dataDetailAnime?.data.theme}/>
             </div>
         </section>
         </>
