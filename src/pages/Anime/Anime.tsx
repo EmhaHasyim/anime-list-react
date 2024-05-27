@@ -9,6 +9,8 @@ import CharaterDetail from "./CharacterDetail/CharacterDetail"
 import AnimeCharacter from "@/utils/Interface/AnimeCharacter"
 import ThemeMusic from "./ThemeMusic/ThemeMusic"
 import RelationAnime from "./RelationsAnime/RelationsAnime"
+import PicturesAnime from "./PicturesAnime/PicturesAnime"
+import PicturesAnimeIN from "@/utils/Interface/PicturesAnime"
 
 
 const Anime = () => {
@@ -23,6 +25,9 @@ const Anime = () => {
 
     // data untuk detail character
     const [dataCharacterDetail, setDataCharacterDetail] = useState<AnimeCharacter | null>(null)
+
+    // data untuk gambar anime
+    const [dataPicturesAnime , setDataPicturesAnime] = useState<PicturesAnimeIN | null >(null)
 
     // kondisi untuk error
     const [error, setError] = useState<boolean>(false)
@@ -42,10 +47,20 @@ const Anime = () => {
                 // mengambil data dari api
                 const res2 = await Fetcher(`/anime/${idAnime}/characters`)
 
+                // mengurutakan dari charater ter populer
                 res2.data.sort((a: { favorites: number }, b: { favorites: number }) => b.favorites - a.favorites)
 
                 // mengatur nilai untuk data character
                 setDataCharacterDetail(res2)
+
+                
+                setTimeout(async () => {
+                    // mengambil data dari api
+                    const res3 = await Fetcher(`/anime/${idAnime}/pictures`)
+
+                    // mengatur nilai untuk gambar anime
+                    setDataPicturesAnime(res3)
+                }, 1000);
             } catch (err) {
                 // mengatur nilai error
                 setError(true)
@@ -59,8 +74,6 @@ const Anime = () => {
 
     if (error) return <>Reload Page</>
     if (isLoading) return <>Loading....</>
-
-    console.log(dataDetailAnime?.data.relations)
 
     return (
         <>
@@ -84,7 +97,7 @@ const Anime = () => {
                 <RelationAnime relation={dataDetailAnime?.data.relations}/>
             </div>
             <div className="row-start-7 row-end-8 col-start-1 col-end-5">
-                
+                <PicturesAnime pictures={dataPicturesAnime}/>
             </div>
         </section>
         </>
