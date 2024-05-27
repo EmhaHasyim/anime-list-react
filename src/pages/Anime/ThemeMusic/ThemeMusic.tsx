@@ -12,7 +12,6 @@ interface Theme {
 }
 
 const ThemeMusic = ({ theme }: { theme: Theme | undefined }) => {
-    console.log(theme)
     return (
         <>
             <section className="flex flex-col gap-2 w-full bg-light-background-secondary dark:bg-dark-background-secondary px-2 py-1 rounded-sm">

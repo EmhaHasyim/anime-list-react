@@ -60,6 +60,8 @@ const Anime = () => {
     if (error) return <>Reload Page</>
     if (isLoading) return <>Loading....</>
 
+    console.log(dataDetailAnime?.data.relations)
+
     return (
         <>
         <section className="w-full grid grid-cols-4 grid-rows-subgrid gap-1.5">
@@ -80,6 +82,9 @@ const Anime = () => {
             </div>
             <div className="row-start-6 row-end-7 col-start-1 col-end-5">
                 <RelationAnime relation={dataDetailAnime?.data.relations}/>
+            </div>
+            <div className="row-start-7 row-end-8 col-start-1 col-end-5">
+                
             </div>
         </section>
         </>
