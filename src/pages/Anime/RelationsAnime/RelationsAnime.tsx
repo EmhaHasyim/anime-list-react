@@ -23,7 +23,7 @@ type Relations = [
 const RelationAnime = ({ relation }: { relation: Relations | undefined }) => {
     return (
         <>
-            <section className="w-full p-2 rounded-sm bg-light-background-secondary dark:bg-dark-background-secondary">
+            <section className="w-full p-2 rounded-sm bg-light-background-secondary dark:bg-dark-background-secondary h-full lg:full">
                 <h1 className="text-light-text-secondary dark:text-dark-text-secondary font-bold bg-theme-light dark:bg-theme-dark px-2 w-fit rounded-full">Relations</h1>
                 <ul className="flex gap-2 flex-col">
                     {relation?.length ? relation?.map((relation, index) => {

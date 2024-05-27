@@ -11,6 +11,7 @@ import ThemeMusic from "./ThemeMusic/ThemeMusic"
 import RelationAnime from "./RelationsAnime/RelationsAnime"
 import PicturesAnime from "./PicturesAnime/PicturesAnime"
 import PicturesAnimeIN from "@/utils/Interface/PicturesAnime"
+import PopDetailInformation from "./Information/PopDetailInformation/PopDetailInformation"
 
 
 const Anime = () => {
@@ -90,14 +91,17 @@ const Anime = () => {
             <div className="row-start-4 row-end-5 col-start-1 col-end-5 sm:row-start-3 sm:row-end-4">
             <CharaterDetail character={dataCharacterDetail} />
             </div>
-            <div className="row-start-5 row-end-6 col-start-1 col-end-5">
+            <div className="row-start-5 row-end-6 col-start-1 col-end-5 sm:row-start-4 sm:row-end-5 sm:col-start-3 lg:row-start-4 lg:row-end-5 lg:col-start-1 lg:col-end-2">
                 <ThemeMusic theme={dataDetailAnime?.data.theme}/>
             </div>
-            <div className="row-start-6 row-end-7 col-start-1 col-end-5">
+            <div className="md:-mt-1.5 lg:mt-0 row-start-6 row-end-7 col-start-1 col-end-5 lg:row-start-4 lg:row-end-5 lg:col-start-2 lg:col-end-3">
                 <RelationAnime relation={dataDetailAnime?.data.relations}/>
             </div>
-            <div className="row-start-7 row-end-8 col-start-1 col-end-5">
+            <div className="row-start-7 row-end-8 col-start-1 col-end-5 lg:row-start-4 lg:row-end-5 lg:col-start-3 lg:col-end-5">
                 <PicturesAnime pictures={dataPicturesAnime}/>
+            </div>
+            <div className="lg:-mt-2 row-start-8 row-end-9 col-start-1 col-end-5 lg:row-start-6 lg:row-end-7 lg:col-start-1 lg:col-end-3">
+                <PopDetailInformation anime={dataDetailAnime}/>
             </div>
         </section>
         </>

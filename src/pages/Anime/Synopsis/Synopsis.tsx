@@ -17,7 +17,7 @@ const Synopsis = ({ synopsis, background }: { synopsis: string | undefined, back
         <>
             <section
                 id="synopsis"
-                className="h-[100px] bg-light-background-secondary dark:bg-dark-background-secondary overflow-hidden relative px-2 py-1 pb-7 md:text-lg"
+                className="h-[100px] bg-light-background-secondary dark:bg-dark-background-secondary overflow-hidden relative px-2 py-1 pb-7 md:text-lg md:pb-10"
             >
                 <h1 className="text-primary font-semibold md:text-2xl">Synopsis</h1>
                 <p className="text-wrap text-start whitespace-pre-line">
@@ -27,7 +27,7 @@ const Synopsis = ({ synopsis, background }: { synopsis: string | undefined, back
                 <p className="text-wrap text-start whitespace-pre-line">
                     {background}
                 </p>
-                <section className="bg-gradient-to-t from-light-background-primary to-light-background-secondary dark:from-dark-background-primary dark:to-dark-background-secondary h-7 w-full absolute -bottom-0 z-10 left-0">
+                <section className="bg-gradient-to-t from-light-background-primary to-light-background-secondary dark:from-dark-background-primary dark:to-dark-background-secondary h-7 w-full absolute bottom-0 z-10 left-0 md:h-10 lg:h-9">
                     <button
                         className="absolute -bottom-0 end-3 text-primary flex items-center gap-1"
                         onClick={() => readMore()}

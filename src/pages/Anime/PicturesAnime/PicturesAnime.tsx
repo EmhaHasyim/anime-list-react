@@ -7,7 +7,7 @@ const PicturesAnime = ({ pictures }: { pictures: PicturesAnimeIN | null }) => {
                 {pictures?.data.map((pictures, index) => {
                     return (
                         <li key={index}>
-                            <section className="relative aspect-[2/3] h-64 overflow-hidden rounded-sm">
+                            <section className="relative aspect-[2/3] h-64 overflow-hidden rounded-sm sm:h-72 md:h-80 lg:h-96">
                             <img src={pictures.webp.image_url} alt={`${index}`} className="w-full h-full"/>
                             </section>
                         </li>
