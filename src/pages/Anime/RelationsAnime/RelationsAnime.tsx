@@ -21,15 +21,14 @@ type Relations = [
 ]
 
 const RelationAnime = ({ relation }: { relation: Relations | undefined }) => {
-    console.log(relation)
     return (
         <>
             <section className="w-full p-2 rounded-sm bg-light-background-secondary dark:bg-dark-background-secondary">
                 <h1 className="text-light-text-secondary dark:text-dark-text-secondary font-bold bg-theme-light dark:bg-theme-dark px-2 w-fit rounded-full">Relations</h1>
                 <ul className="flex gap-2 flex-col">
-                    {relation?.length ? relation?.map((relation) => {
+                    {relation?.length ? relation?.map((relation, index) => {
                         return (
-                            <li>
+                            <li key={index}>
                                 <h1 className="text-light-text-secondary dark:text-dark-text-secondary font-bold bg-theme-light dark:bg-theme-dark px-2 w-fit rounded-full">{relation.relation}</h1>
                                     {relation?.entry.map((entry, index) => {
                                         return (
