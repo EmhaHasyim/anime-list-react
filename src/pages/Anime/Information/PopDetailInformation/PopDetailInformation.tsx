@@ -6,7 +6,8 @@ const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
 
     return (
         <>
-            <section className="h-full bg-light-background-secondary dark:bg-dark-background-secondary text-light-text-secondary dark:text-dark-text-secondary p-5 rounded">
+            <section className="h-full flex flex-col justify-center items-center bg-light-background-secondary dark:bg-dark-background-secondary text-light-text-secondary dark:text-dark-text-secondary p-5 rounded">
+                <h1 className="text-center w-full text-light-text-secondary dark:text-dark-text-secondary font-bold text-lg">Information</h1>
                 <table className="table-auto text-xs md:text-sm lg:text-base">
                     <tbody className="w-full">
                         <tr className="">
