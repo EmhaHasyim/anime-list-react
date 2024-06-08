@@ -1,7 +1,7 @@
-import Fetcher from "@/utils/Fetcher/Fetcher"
-import DetailAnime from "@/utils/Interface/DetailAnime"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import axios from "axios"
+import DetailAnime from "@/utils/Interface/DetailAnime"
 import Trailer from "./TrailerVideo/Trailer"
 import Information from "./Information/Information"
 import Synopsis from "./Synopsis/Synopsis"
@@ -14,61 +14,36 @@ import PicturesAnimeIN from "@/utils/Interface/PicturesAnime"
 import PopDetailInformation from "./Information/PopDetailInformation/PopDetailInformation"
 import StatisticsAnime from "./StatisticsAnime/StatisticsAnime"
 
+const apiUrl = import.meta.env.VITE_API_URL
+
 
 const Anime = () => {
-    // params
     const params = useParams()
-
-    // nilai id anime
     const idAnime = params.id
 
-    // data untuk detail anime
     const [dataDetailAnime, setDataDetailAnime] = useState<DetailAnime | null>(null)
-
-    // data untuk detail character
     const [dataCharacterDetail, setDataCharacterDetail] = useState<AnimeCharacter | null>(null)
-
-    // data untuk gambar anime
     const [dataPicturesAnime, setDataPicturesAnime] = useState<PicturesAnimeIN | null>(null)
+    const [dataStatisticsAnime, setDataStatsticsAnime] = useState<any>(null)
 
-    const [dataStatisticsAnime, setDataStatsticsAnime]= useState<any>(null)
-
-    // kondisi untuk error
     const [error, setError] = useState<boolean>(false)
-
-    // kondisi untuk loading
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
     useEffect(() => {
         const fetchDataDetailAnime = async () => {
             try {
-                // mengambil data dari api
-                const res = await Fetcher(`/anime/${idAnime}/full`)
-
-                // mengatur nilai untuk data detail anime
+                const res = await (await axios.get(`${apiUrl}/anime/${idAnime}/full`)).data
                 setDataDetailAnime(res)
 
-                // mengambil data dari api
-                const res2 = await Fetcher(`/anime/${idAnime}/characters`)
-
-                // mengurutakan dari charater ter populer
+                const res2 = await (await axios.get(`${apiUrl}/anime/${idAnime}/characters`)).data
                 res2.data.sort((a: { favorites: number }, b: { favorites: number }) => b.favorites - a.favorites)
-
-                // mengatur nilai untuk data character
                 setDataCharacterDetail(res2)
 
-
                 setTimeout(async () => {
-                    // mengambil data dari api
-                    const res3 = await Fetcher(`/anime/${idAnime}/pictures`)
-
-                    // mengatur nilai untuk gambar anime
+                    const res3 = await (await axios.get(`${apiUrl}/anime/${idAnime}/pictures`)).data
                     setDataPicturesAnime(res3)
 
-                    // mengambil data dari api
-                    const res4 = await Fetcher(`/anime/${idAnime}/statistics`)
-
-                    // mengatur nilai untuk statisik anime
+                    const res4 = await (await axios.get(`${apiUrl}/anime/${idAnime}/statistics`)).data
                     setDataStatsticsAnime(res4)
                 }, 1000);
             } catch (err) {
@@ -101,13 +76,13 @@ const Anime = () => {
                     <CharaterDetail character={dataCharacterDetail} />
                 </div>
                 <div className="row-start-5 row-end-6 col-start-1 col-end-5 sm:row-start-4 sm:row-end-5 sm:col-start-3 md:row-start-4 md:row-end-5 md:col-start-1 md:col-end-5 lg:row-start-4 lg:row-end-5">
-                        <ThemeMusic theme={dataDetailAnime?.data.theme} />
+                    <ThemeMusic theme={dataDetailAnime?.data.theme} />
                 </div>
                 <div className="row-start-6 row-end-7 col-start-1 col-end-5 md:row-start-5 md:row-end-6 lg:row-start-5 lg:row-end-6">
-                        <RelationAnime relation={dataDetailAnime?.data.relations} />
+                    <RelationAnime relation={dataDetailAnime?.data.relations} />
                 </div>
                 <div className="row-start-7 row-end-8 col-start-1 col-end-5 md:row-start-7 md:row-end-8 md:col-start-3 lg:row-start-6 lg:row-end-7">
-                        <StatisticsAnime statistics={dataStatisticsAnime}/>
+                    <StatisticsAnime statistics={dataStatisticsAnime} />
                 </div>
                 <div className="row-start-8 row-end-9 col-start-1 col-end-5 md:row-start-8 md:row-end-9 md:col-start-1 lg:row-start-6 lg:row-end-7 lg:col-start-1 lg:col-end-3">
                     <PicturesAnime pictures={dataPicturesAnime} />
