@@ -3,24 +3,17 @@ import { useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 
 const SearchBar = () => {
-
-    // navigate
     const navigate = useNavigate()
 
-    // nilai untuk search
     const searchRef = useRef<HTMLInputElement>(null)
-
     const typeRef = useRef<HTMLSelectElement>(null)
 
-    // nila dari tinggi body
     const [bodyHeight, setBodyHeight] = useState<number>(0)
 
-    // untuk mengatur tinggi cover black
     const handelResize = () => {
         setBodyHeight(document.body.scrollHeight - 96)
     }
 
-    // untuk menampilan funsi search
     const handleBtnToDisplaySearchBarInput = () => {
         handelResize()
         const searchBarInput = document.getElementById('searchBarInput')
@@ -30,7 +23,6 @@ const SearchBar = () => {
         coverBlack?.classList.toggle('hidden')
     }
 
-    // untuk search saat tekan enter
     const handleInputSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter' && searchRef.current && typeRef.current) {
             navigate(`/search/${searchRef.current.value}?type=${typeRef.current.value}`, { relative: 'path' })
@@ -38,7 +30,6 @@ const SearchBar = () => {
         }
     }
 
-    // untuk search saat button ditekan
     const handleBtnSearch = () => {
         if (searchRef.current && typeRef.current) {
             const btnSearch: any = document.getElementById('btnSearch')
@@ -48,7 +39,6 @@ const SearchBar = () => {
             btnSearch.disabled = false
         }
     }
-
 
     return (
         <>
@@ -73,7 +63,6 @@ const SearchBar = () => {
                 </label>
             </section>
             <section id="coverBlack" style={{ minHeight: bodyHeight }} className={`hidden z-[21] absolute w-full bg-black bg-opacity-60 left-0 top-24 sm:hidden`}>
-
             </section>
         </>
     )

@@ -1,7 +1,7 @@
 function YearAndSeason(): [number, string] {
     const now = new Date();
     const year = now.getFullYear();
-    const month = now.getMonth() + 1; // January is 0!
+    const month = now.getMonth() + 1;
 
     let season: string;
     if (month >= 3 && month <= 5) {
