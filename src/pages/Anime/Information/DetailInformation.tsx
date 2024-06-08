@@ -7,20 +7,16 @@ import { useState } from "react";
 
 const DetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
 
-    // nila dari tinggi body
     const [bodyHeight, setBodyHeight] = useState<number>(0)
 
-    // untuk mengatur tinggi cover black
     const handelResize = () => {
         setBodyHeight(document.body.scrollHeight)
     }
 
-    // membenarkan nilai
     const membersFix = (members: number | undefined): string | undefined => {
         return members?.toLocaleString();
     }
 
-    // fungsi untuk menampilan informasi
     const handleBtnInformation = (): void => {
         handelResize()
         const popInfomation = document.getElementById('popInfomation')

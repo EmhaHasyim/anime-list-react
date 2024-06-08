@@ -2,7 +2,6 @@ import { Triangle } from "@phosphor-icons/react";
 import { useState } from "react";
 
 const Synopsis = ({ synopsis, background }: { synopsis: string | undefined, background: string | undefined }) => {
-
     const [readMoreBtn, setReadMoreBtn] = useState("Read More");
     const readMore = () => {
         const synopsis = document.getElementById("synopsis");

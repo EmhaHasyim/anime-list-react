@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 
 const PopDetailInformation = ({ anime }: { anime: DetailAnime | null }) => {
-
     return (
         <>
             <section className="h-full flex flex-col justify-center items-center bg-light-background-secondary dark:bg-dark-background-secondary text-light-text-secondary dark:text-dark-text-secondary p-5 rounded">
